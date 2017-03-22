@@ -543,17 +543,17 @@ class Config(object):
                 for attr, cumulatives in self.cumulative_overrides.iteritems():
                     if 'target.'+attr in overrides:
                         cumulatives.strict_cumulative_overrides(
-                            overrides['target.'+attr])
+                            [overrides['target.'+attr]])
                         del overrides['target.'+attr]
 
                     if 'target.'+attr+'_add' in overrides:
                         cumulatives.add_cumulative_overrides(
-                            overrides['target.'+attr+'_add'])
+                            [overrides['target.'+attr+'_add']])
                         del overrides['target.'+attr+'_add']
 
                     if 'target.'+attr+'_remove' in overrides:
                         cumulatives.remove_cumulative_overrides(
-                            overrides['target.'+attr+'_remove'])
+                            [overrides['target.'+attr+'_remove']])
                         del overrides['target.'+attr+'_remove']
 
                 # Consider the others as overrides
